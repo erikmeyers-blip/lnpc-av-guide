@@ -1,0 +1,9 @@
+# Source material: training transcripts and vendor manuals.
+# Deliberately excluded — a GitHub Pages repo is public, and these
+# contain recorded conversation and licensed documentation.
+_source/
+
+# OS noise
+Thumbs.db
+.DS_Store
+desktop.ini

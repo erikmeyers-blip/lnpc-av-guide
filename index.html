@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>LNPC Sanctuary AV Guide</title>
+<meta name="description" content="Quick, plain-language help for running sound, streaming, and assistive listening in the Lake Nokomis Presbyterian Church sanctuary.">
+<meta name="theme-color" id="theme-color" content="#ffffff">
+<script>
+  /* Apply a saved Appearance choice before the first paint, so a reader
+     who picked Dark never gets a flash of the light page. Kept inline
+     and tiny on purpose — it has to run before the stylesheet paints. */
+  (function () {
+    try {
+      var saved = localStorage.getItem('lnpc.theme');
+      if (saved === 'dark' || saved === 'light') {
+        document.documentElement.setAttribute('data-theme', saved);
+      }
+    } catch (e) { /* private mode — fall back to following the phone */ }
+  })();
+</script>
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/favicon.svg">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="topbar" id="topbar">
+  <div class="topbar-inner">
+    <a class="topbar-back" id="back-link" href="#/" hidden>
+      <span aria-hidden="true">&#8249;</span><span class="topbar-back-text">Back</span>
+    </a>
+    <span class="topbar-title" id="topbar-title">Sanctuary AV Guide</span>
+    <a class="topbar-help" id="help-link" href="#/help">Help</a>
+  </div>
+</header>
+
+<main id="main" tabindex="-1"></main>
+
+<footer class="sitefoot">
+  <p><strong>Lake Nokomis Presbyterian Church</strong> &middot; Sanctuary AV &amp; assistive listening guide</p>
+  <p class="sitefoot-meta">Draft — some details are still being confirmed and are marked <span class="pill pill-open">Still being confirmed</span> in the text.</p>
+
+  <div class="theme" id="theme-control">
+    <span class="theme-label" id="theme-label">Appearance</span>
+    <div class="theme-group" role="group" aria-labelledby="theme-label">
+      <button type="button" class="theme-btn" data-theme-set="auto"  aria-pressed="true">Auto</button>
+      <button type="button" class="theme-btn" data-theme-set="light" aria-pressed="false">Light</button>
+      <button type="button" class="theme-btn" data-theme-set="dark"  aria-pressed="false">Dark</button>
+    </div>
+  </div>
+
+  <p><a href="#/support">Support &amp; who to call</a> &middot; <a href="#/">Start over</a></p>
+</footer>
+
+<script src="assets/js/content.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
