@@ -102,7 +102,7 @@ LNPC.operator = {
       body: [
         { t: 'p', x: 'Go to the rack in the back room and press the power button marked with a **green dot sticker**. That one press wakes up the mixer, the amplifier, and the rest of the rack together.' },
         { t: 'p', x: 'Then **wait 30 to 60 seconds** while it boots. Nothing will work until it finishes, and that’s normal.' },
-        { t: 'note', label: 'The dots are the instructions', x: 'Green dot means *this one is yours*. A red dot means please leave it alone. The hand-lettered sign says the rest: all the levels are already set.' },
+        { t: 'note', label: 'The dots are the instructions', x: 'A green dot means *this one is yours*. Anything without one isn’t — the hand-lettered sign says the rest: all the levels are already set, and the marked buttons are the only ones you need.' },
         { t: 'note', label: 'You don’t turn on the mics', x: 'Every microphone comes up already live when the rack powers on. There are no individual mic switches to remember.' },
         { t: 'note', label: 'The wireless box stays on', x: 'The wireless access point on top of the rack is **not** on this button — it’s left powered all the time, because it’s slow to boot. Nothing to do with it on a normal Sunday.' }
       ]
