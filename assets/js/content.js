@@ -147,6 +147,7 @@ LNPC.operator = {
         ]},
         { t: 'note', label: 'Why bother every week', x: 'Zoom updates quietly reset these. And the sanctuary system hands Zoom a finished, balanced mix — Zoom’s helpful auto-adjusting and echo cancellation are built for a laptop mic and end up fighting the mix instead.' },
         { t: 'p', x: 'The little **green microphone indicator** in the corner of the Zoom window is your confirmation that sound is actually reaching Zoom. If you’re unsure, run Zoom’s own *Test Speaker & Microphone*.' },
+        { t: 'jump', to: '#/help/no-internet', icon: '🔧', x: 'If Zoom won’t connect at all' },
         { t: 'jump', to: '#/help/stream-sound', icon: '🔧', x: 'If people online can’t hear anything' }
       ]
     },
@@ -443,6 +444,7 @@ LNPC.wireless = {
       'Open the app. It finds the mixer by itself — tap **Connect**.'
     ]},
     { t: 'warn', label: 'The AV Net password', x: 'It’s on a **sticker on the router**, sitting on top of the rack. It isn’t printed here or on any of the cards, on purpose.' },
+    { t: 'note', label: 'Two different networks', x: '`AV Net` talks to the mixer and has **no internet on it**. `lnpc` is the church wi-fi that the streaming computer uses for Zoom. Joining an iPad to `AV Net` is expected; putting the **streaming computer** on it would stop Zoom working.' },
     { t: 'note', label: 'iPad, not iPhone', x: 'TF StageMix is an iPad-only app, and it isn’t on Android at all. There’s a second Yamaha app called **Monitor Mix** that does show up on phones — that one is for performers adjusting their own monitors and won’t do what you want here. Don’t mix them up.' },
     { t: 'p', x: 'Several devices can be connected at once, and anything you change is saved on the mixer itself — so a change made from an iPad is there on the touchscreen too, and the other way around.' },
     { t: 'p', x: 'The mixer is a **Yamaha TF5**.' }
@@ -469,6 +471,22 @@ LNPC.help = {
           'If several things look wrong at once, [recall the starting scene](#/mixer).'
         ]},
         { t: 'note', label: 'Worth knowing', x: 'All the mics come up live on their own when the rack powers up — so “someone forgot to switch the mic on at the mixer” isn’t usually the answer. Look at the mic in someone’s hand first.' }
+      ]
+    },
+    {
+      id: 'no-internet',
+      q: 'Zoom won’t connect, or the meeting won’t start',
+      body: [
+        { t: 'p', x: 'Before anything else, check the computer is actually on the internet. Sound problems and connection problems look the same from the back of the room, and this one has nothing to do with the AV system.' },
+        { t: 'ol', x: [
+          'Click the **network icon** in the bottom-right corner of the Windows taskbar.',
+          'Confirm the PC is connected to the church wi-fi, named **`lnpc`**.',
+          'If it isn’t, pick `lnpc` from the list and reconnect.',
+          'Give Zoom a moment, or close and reopen it, once you’re back online.'
+        ]},
+        { t: 'warn', label: 'Don’t connect the PC to AV Net', x: '`AV Net` is the mixer’s own private network and it has **no internet on it at all**. It exists so an iPad can control the mixer, nothing more. If the computer ends up on `AV Net`, Zoom will fail with exactly this symptom — switch it back to `lnpc`.' },
+        { t: 'note', label: 'Is it just us?', x: 'Check whether your phone has trouble on the church wi-fi too. If the whole building is offline, that’s an internet outage rather than an AV fault — the room sound will keep working normally, and the stream simply has to wait it out.' },
+        { t: 'jump', to: '#/help/stream-sound', icon: '🔧', x: 'Zoom connects, but nobody can hear anything' }
       ]
     },
     {
