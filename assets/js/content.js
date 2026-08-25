@@ -410,18 +410,18 @@ LNPC.mixer = {
     ]},
 
     { t: 'h', x: 'Putting everything back — scene recall' },
-    { t: 'p', x: 'All the working settings are saved as a **scene** (it’s the starting file listed in the scenes menu). Recalling it restores every channel at once.' },
+    { t: 'p', x: 'All the working settings are saved as a **scene**, named **`ALS-Starting File`** and listed as scene **002**. Recalling it restores every channel at once.' },
     { t: 'ol', x: [
       'Press **Home** if you’re somewhere else.',
       'Open the **Scenes** list, in the top corner.',
-      'Touch the starting scene so it’s highlighted.',
+      'Touch **`ALS-Starting File`** so it’s highlighted.',
       'Touch **Recall**, and confirm.'
     ]},
     { t: 'note', label: 'Look before you recall', x: 'First glance around for something obviously bumped — a fader pulled down, a channel switched off. Often it’s one thing, and putting that one thing back is quicker and less alarming than a full recall.' },
 
     { t: 'h', x: 'Scenes for special Sundays' },
     { t: 'p', x: 'You can save extra named scenes — a Christmas setup with extra players, say — without touching the everyday one. Individual channels can be saved as presets too.' },
-    { t: 'open', x: 'No extra scenes exist yet beyond the starting one. The vendor was clear that real settings come from a few services’ worth of feedback, so this is worth revisiting once the system has some Sundays behind it.' },
+    { t: 'note', label: 'One scene is the plan', x: '`ALS-Starting File` is the only scene, and that’s deliberate — the church decided to stay on the vendor’s default rather than build up alternatives. If a special service ever needs its own setup, save it under a new name so the default stays untouched.' },
 
     { t: 'h', x: 'Phantom power' },
     { t: 'p', x: 'The instrument mics, the piano mic and the lectern gooseneck all need **48V phantom power**. It’s deliberately left switched off on the general-purpose channels.' },
@@ -474,7 +474,7 @@ LNPC.help = {
           'Check the microphone itself is switched on and not muted at the mic. Wireless handhelds and lavaliers have their own switches.',
           'Look at the mixer for something obviously bumped — a fader pulled down, a channel switched off.',
           'Check the amplifier’s power light in the rack.',
-          'If several things look wrong at once, [recall the starting scene](#/mixer).'
+          'If several things look wrong at once, [recall `ALS-Starting File`](#/mixer).'
         ]},
         { t: 'note', label: 'Worth knowing', x: 'All the mics come up live on their own when the rack powers up — so “someone forgot to switch the mic on at the mixer” isn’t usually the answer. Look at the mic in someone’s hand first.' }
       ]
@@ -528,7 +528,7 @@ LNPC.help = {
         { t: 'ol', x: [
           'Press **Home**.',
           'Open the **Scenes** list, top corner.',
-          'Touch the starting scene.',
+          'Touch **`ALS-Starting File`** (scene 002).',
           'Touch **Recall** and confirm.'
         ]},
         { t: 'p', x: 'That restores every channel to the settings that were saved as known-good. Nothing is lost that you’d miss.' }
@@ -638,7 +638,7 @@ LNPC.supportPage = {
     { t: 'ul', x: [
       'What you’re hearing, and where — in the room, on the stream, or on a hearing assistance receiver.',
       'When it started, and anything that changed just before.',
-      'Whether you’ve tried recalling the starting scene on the mixer.'
+      'Whether you’ve tried recalling `ALS-Starting File` on the mixer.'
     ]},
     { t: 'h', x: 'Inside the church' },
     { t: 'p', x: 'For the PC login PIN, the AV Net wi-fi password, or anything to do with switching on phantom power for an instrument mic, ask this week’s Hospitality team tech volunteer. Those are all deliberately kept off the printed cards and off this site.' }
@@ -666,7 +666,8 @@ LNPC.openItems = {
       '**Mixer lock** — no password on the touchscreen for now. Anyone can adjust it, so the scene recall is the safety net.',
       '**Wireless access point** — stays powered all the time, separate from the rack’s green-dot button.',
       '**PC login PIN** — never printed anywhere. Ask this week’s Hospitality team tech volunteer.',
-      '**Auri Manager** — the admin software is Audio Logic’s tool, not something LNPC uses. Deliberately left out of this guide.'
+      '**Auri Manager** — the admin software is Audio Logic’s tool, not something LNPC uses. Deliberately left out of this guide.',
+      '**Mixer scenes** — staying on the vendor’s default, `ALS-Starting File` (scene 002). No extra scenes planned.'
     ]},
     { t: 'note', label: 'Deliberately not published', x: 'The PC login PIN and the AV Net wi-fi password are not on this site, on the station cards, or in the printed guide. That was a decision, not an oversight — ask this week’s Hospitality team tech volunteer, or read the sticker on the router.' }
   ]
