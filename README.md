@@ -38,6 +38,20 @@ The full reference page is assembled from the same content the persona pages
 use, so it cannot drift out of date. Add a troubleshooting entry once and it
 shows up in both places.
 
+## After you edit: bump the version
+
+The stylesheet and both scripts are loaded with a `?v=` number in
+`index.html`. **When you change `content.js`, `app.js` or `styles.css`,
+increase that number on all three.**
+
+GitHub Pages tells browsers to cache those files for about ten minutes.
+Without the bump, you push a change, reload, and see the old page — and
+so does anyone who visited recently. Changing `?v=2` to `?v=3` makes it a
+new URL, so every browser fetches it immediately.
+
+Adding or replacing a photo in `assets/img/` doesn't need a bump unless
+you reuse an existing filename.
+
 ## Deliberately not published
 
 Two things were kept off this site on purpose, matching the decision already
