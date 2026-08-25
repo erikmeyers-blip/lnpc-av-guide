@@ -7,3 +7,11 @@ _source/
 Thumbs.db
 .DS_Store
 desktop.ini
+
+# Full-resolution source photos (~24MB). The web-sized copies that the
+# site actually uses live in assets/img/. Remove this line if you want the
+# originals in the repo too.
+Photos/
+
+# Temporary safety copies made before editing the station cards.
+Instruction Cards/_backup_*/

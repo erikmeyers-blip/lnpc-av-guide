@@ -409,6 +409,33 @@ main:focus { outline: none; }
   box-shadow: 0 0 0 3px var(--accent-bg), var(--shadow);
 }
 
+/* ---------- reference photos ---------- */
+
+.shot {
+  margin: 0 0 1.1rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* Tall phone photos would otherwise push the next step off-screen. */
+  max-height: 60vh;
+  object-fit: contain;
+  background: var(--surface-2);
+}
+.shot figcaption {
+  padding: .6rem .85rem;
+  border-top: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-size: .88rem;
+  line-height: 1.45;
+}
+
 /* ---------- inline navigation links ---------- */
 
 .jump {

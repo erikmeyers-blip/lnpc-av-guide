@@ -170,6 +170,14 @@
       case 'open':
         return callout(b);
 
+      case 'img':
+        return '<figure class="shot">' +
+                 '<img src="' + b.src + '" alt="' + b.alt + '"' +
+                      (b.w ? ' width="' + b.w + '" height="' + b.h + '"' : '') +
+                      ' loading="lazy" decoding="async">' +
+                 (b.caption ? '<figcaption>' + fmt(b.caption) + '</figcaption>' : '') +
+               '</figure>';
+
       case 'jump':
         return '<a class="jump" href="' + b.to + '">' +
                  '<span class="jump-icon" aria-hidden="true">' + (b.icon || '') + '</span>' +

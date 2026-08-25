@@ -234,9 +234,12 @@ LNPC.musician = {
 
     { t: 'h', x: 'The instrument mics' },
     { t: 'ul', x: [
-      'Two Shure small-diaphragm condenser mics live in a case. They’re very directional and they sound lovely on strings — cello, violin and the like.',
+      'Two **Shure KSM137** condenser mics live in a hard case, along with their clips and foam windscreens. They’re very directional and they sound lovely on strings — cello, violin and the like.',
       'A **stereo mic bar** puts both of them on a single stand. That’s the setup for a small ensemble sitting in a half circle, so one mic isn’t favoring whoever happens to be closest.'
     ]},
+    { t: 'img', src: 'assets/img/instrument-mics.jpg', w: 753, h: 1000,
+      alt: 'Two silver Shure KSM137 condenser microphones mounted on a black stereo bar on a tripod stand',
+      caption: 'Both mics on the stereo bar, on one stand — this is what the ensemble setup looks like put together.' },
     { t: 'warn', label: 'These two need a tech first', x: 'The instrument mics need **phantom power** (48V) switched on for their channel, and the church chose to leave phantom power **off** by default. Ask this week’s Hospitality team tech volunteer to switch it on before you play — it takes them a moment on the mixer.' },
     { t: 'stop', label: 'Never yank a live mic', x: 'Don’t unplug an instrument or piano mic while its channel is on. Phantom power plus an unplugged cable makes a loud pop that can damage the speakers. Turn the channel off first, then unplug.' },
 
@@ -307,6 +310,9 @@ LNPC.listeningReceiver = {
       title: 'Pick one up',
       body: [
         { t: 'p', x: 'The receivers live in a charging dock, most likely **near the sanctuary entrance**. If you can’t see it, ask a **Hospitality team host** — they’ll know where it is and they’re happy to help you get set up.' },
+        { t: 'img', src: 'assets/img/auri-receivers.jpg', w: 753, h: 1000,
+          alt: 'Black Auri charging dock with four numbered slots, three small receivers sitting in it with lights glowing on top',
+          caption: 'This is what you’re looking for. Lift one straight out of its slot — it switches itself on as you do.' },
         { t: 'open', x: 'The dock’s permanent home isn’t settled yet — it depends on where there’s a power outlet near the entrance. Until it’s fixed in one place, asking a Hospitality team host is the reliable way to find it.' }
       ]
     },
