@@ -240,7 +240,8 @@ LNPC.musician = {
     { t: 'img', src: 'assets/img/instrument-mics.jpg', w: 753, h: 1000,
       alt: 'Two silver Shure KSM137 condenser microphones mounted on a black stereo bar on a tripod stand',
       caption: 'Both mics on the stereo bar, on one stand. This is what the ensemble setup looks like put together.' },
-    { t: 'warn', label: 'These two need a tech first', x: 'The instrument mics need **phantom power** (48V) switched on for their channel, and the church chose to leave phantom power **off** by default. Ask this week’s Hospitality team tech volunteer to switch it on before you play. It takes them a moment on the mixer.' },
+    { t: 'warn', label: 'These two need a tech first', x: 'The instrument mics need **phantom power** (48V) switched on for their channel, and the church chose to leave phantom power **off** by default. Ask this week’s Hospitality team tech volunteer to switch it on before you play. It takes about a minute on the mixer.' },
+    { t: 'jump', to: '#/mixer', icon: '🎛️', x: 'Show them how to switch phantom power on' },
     { t: 'stop', label: 'Never yank a live mic', x: 'Don’t unplug an instrument or piano mic while its channel is on. Phantom power plus an unplugged cable makes a loud pop that can damage the speakers. Turn the channel off first, then unplug.' },
 
     { t: 'h', x: 'The lectern mic' },
@@ -424,9 +425,24 @@ LNPC.mixer = {
     { t: 'note', label: 'One scene is the plan', x: '`ALS-Starting File` is the only scene, and that’s deliberate. The church decided to stay on the vendor’s default rather than build up alternatives. If a special service ever needs its own setup, save it under a new name so the default stays untouched.' },
 
     { t: 'h', x: 'Phantom power' },
-    { t: 'p', x: 'The instrument mics, the piano mic and the lectern gooseneck all need **48V phantom power**. It’s deliberately left switched off on the general-purpose channels.' },
-    { t: 'stop', label: 'Why it matters', x: 'Unplugging a live phantom-powered mic makes a loud pop that can damage the speakers. Turn the channel off before unplugging anything, every time.' },
-    { t: 'p', x: 'If a channel gets dedicated to a mic that always needs phantom power, it’s safe to leave it on for that channel, as long as nothing else ever gets plugged in there.' },
+    { t: 'p', x: 'The instrument mics, the piano mic and the lectern gooseneck all need **48V phantom power**. It’s deliberately left switched off on the general-purpose channels, so if a musician turns up with an instrument mic, somebody has to switch it on for that channel.' },
+
+    { t: 'h', x: 'Switching phantom power on for a channel' },
+    { t: 'ol', x: [
+      'Plug the mic in **first**, while phantom power is still off.',
+      'Pull that channel’s **fader all the way down**, or switch the channel off. Do this before you touch the 48V button, in both directions.',
+      'Press **Home**, then touch the channel you want so it’s selected.',
+      'Touch the **top box on the channel strip**, the input and gain area. That opens the INPUT screen.',
+      'Touch the **+48V** button so it’s on.',
+      'Bring the fader back up and set the level.'
+    ]},
+    { t: 'p', x: 'Reverse it the same way when the musician is done: fader down, +48V off, then unplug.' },
+
+    { t: 'warn', label: 'If nothing happens, check the master switch', x: 'There is a separate **+48V Master** button in the mixer’s setup screen. While that is off, no channel gets phantom power no matter what its own +48V button says. It’s the usual reason a mic stays silent after somebody was sure they switched it on.' },
+
+    { t: 'stop', label: 'The three rules from Yamaha', x: 'Don’t switch +48V on for a device that doesn’t need it. Don’t plug or unplug a cable while +48V is on for that channel. And always drop the channel’s level to minimum before switching phantom power either on or off. Ignoring the last two makes a loud pop that can damage the speakers.' },
+
+    { t: 'p', x: 'If a channel ends up dedicated to a mic that always needs phantom power, it’s safe to leave it on for that channel, as long as nothing else ever gets plugged in there.' },
 
     { t: 'h', x: 'Locking the touchscreen' },
     { t: 'note', label: 'There’s no password on it', x: 'The touchscreen *can* be locked so only certain people can change things, but the church decided against it for now. Anyone can walk up and adjust it, which is exactly why the scene recall above matters.' },
