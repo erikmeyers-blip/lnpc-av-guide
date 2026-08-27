@@ -2,7 +2,7 @@
 
 A mobile-first guide to the sanctuary sound, streaming and hearing assistance
 system at Lake Nokomis Presbyterian Church. Built to be reached by scanning a QR
-code on a phone — no login, no install, no app store.
+code on a phone, with no login, no install and no app store.
 
 It is a plain static site: HTML, one stylesheet, two scripts. No build step, no
 dependencies, no framework. You can open `index.html` directly in a browser and
@@ -17,11 +17,11 @@ rather than a chapter of a manual:
 |---|---|---|
 | I'm running sound & streaming | `#/operator` | The Sunday volunteer, start to finish |
 | I'm playing or singing | `#/musician` | Musicians and guest performers |
-| I want to hear better | `#/listening` | Congregation — forks into Auracast vs. borrowed receiver |
+| I want to hear better | `#/listening` | Congregation, forks into Auracast vs. borrowed receiver |
 | Something's not working | `#/help` | Symptom-first troubleshooting |
 | Full reference | `#/reference` | Everything on one page, for trained techs |
 
-Persona paths link sideways into troubleshooting where it helps — the Zoom
+Persona paths link sideways into troubleshooting where it helps. The Zoom
 settings step links straight to the "no sound on the stream" entry, for example,
 so nobody has to go back to the home screen mid-service.
 
@@ -45,7 +45,7 @@ The stylesheet and both scripts are loaded with a `?v=` number in
 increase that number on all three.**
 
 GitHub Pages tells browsers to cache those files for about ten minutes.
-Without the bump, you push a change, reload, and see the old page — and
+Without the bump, you push a change, reload, and see the old page, and
 so does anyone who visited recently. Changing `?v=2` to `?v=3` makes it a
 new URL, so every browser fetches it immediately.
 
@@ -60,7 +60,7 @@ made for the printed cards and Quick-Start Guide:
 - **The PC login PIN.** The site says "ask a tech team member."
 - **The AV Net wi-fi password.** The site points at the sticker on the router.
 
-Please don't add either one, even to a private repo — this content ends up
+Please don't add either one, even to a private repo, because this content ends up
 behind a public QR code taped to a cart.
 
 Open questions from the training are flagged in purple "Still being confirmed"
@@ -75,7 +75,7 @@ node serve.js
 ```
 
 Then open <http://localhost:4173>. `serve.js` is a small preview server for
-local work only — it is not part of the published site and does not need to be
+local work only. It is not part of the published site and does not need to be
 deployed. You can also just double-click `index.html`; hash routing means it
 works from the filesystem too.
 
@@ -93,13 +93,13 @@ works from the filesystem too.
 ### After the first deploy
 
 The QR codes printed on the station cards currently point at a placeholder URL.
-Once the real URL exists, regenerate those QR codes — that's a separate job from
+Once the real URL exists, regenerate those QR codes. That is a separate job from
 this repo.
 
 ## What's in the folder
 
 ```
-index.html               the shell — header, footer, script tags
+index.html               the shell: header, footer, script tags
 404.html                 friendly landing for a mistyped or stale link
 manifest.webmanifest     lets people add it to a phone home screen
 .nojekyll                tells GitHub Pages to serve files untouched
@@ -108,7 +108,7 @@ assets/css/styles.css    all styling, light and dark
 assets/js/content.js     ← all the words live here
 assets/js/app.js         router and renderers
 assets/img/              church logo and favicon
-_source/                 transcripts, vendor manuals, site photos — NOT published
+_source/                 transcripts, vendor manuals, site photos. NOT published
 ```
 
 `_source/` is listed in `.gitignore`. It holds the raw training transcripts and
@@ -122,9 +122,9 @@ repository. Keep it that way.
   **Appearance** control in the footer lets a reader force Light or Dark and
   remembers the choice. A tiny inline script in the head of `index.html` applies
   the saved choice before the first paint, so there's no flash of the wrong
-  theme — that's why it's inline rather than in `app.js`.
-- Every color in `styles.css` is a token. The dark palette is written twice — once
-  under `prefers-color-scheme: dark` and once under `[data-theme="dark"]` — and
+  theme, which is why it is inline rather than in `app.js`.
+- Every color in `styles.css` is a token. The dark palette is written twice: once
+  under `prefers-color-scheme: dark` and once under `[data-theme="dark"]`, and
   **the two blocks must be kept in sync.** Nothing outside those blocks should
   name a raw color; add a token instead. Text contrast is above 7:1 (WCAG AAA)
   in both themes.

@@ -9,20 +9,20 @@
 <script>
   /* Apply a saved Appearance choice before the first paint, so a reader
      who picked Dark never gets a flash of the light page. Kept inline
-     and tiny on purpose — it has to run before the stylesheet paints. */
+     and tiny on purpose, because it has to run before the stylesheet paints. */
   (function () {
     try {
       var saved = localStorage.getItem('lnpc.theme');
       if (saved === 'dark' || saved === 'light') {
         document.documentElement.setAttribute('data-theme', saved);
       }
-    } catch (e) { /* private mode — fall back to following the phone */ }
+    } catch (e) { /* private mode: fall back to following the phone */ }
   })();
 </script>
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/img/favicon.svg">
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="stylesheet" href="assets/css/styles.css?v=4">
+<link rel="stylesheet" href="assets/css/styles.css?v=5">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -41,7 +41,7 @@
 
 <footer class="sitefoot">
   <p><strong>Lake Nokomis Presbyterian Church</strong> &middot; Sanctuary AV &amp; assistive listening guide</p>
-  <p class="sitefoot-meta">Draft — some details are still being confirmed and are marked <span class="pill pill-open">Still being confirmed</span> in the text.</p>
+  <p class="sitefoot-meta">Draft. Some details are still being confirmed and are marked <span class="pill pill-open">Still being confirmed</span> in the text.</p>
 
   <div class="theme" id="theme-control">
     <span class="theme-label" id="theme-label">Appearance</span>
@@ -58,7 +58,7 @@
 <!-- Bump ?v= on all three when you change content, styling or code.
      GitHub Pages caches these for ~10 minutes otherwise, and returning
      visitors keep seeing the old version. See README. -->
-<script src="assets/js/content.js?v=4"></script>
-<script src="assets/js/app.js?v=4"></script>
+<script src="assets/js/content.js?v=5"></script>
+<script src="assets/js/app.js?v=5"></script>
 </body>
 </html>

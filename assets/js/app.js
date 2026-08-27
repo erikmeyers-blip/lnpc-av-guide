@@ -1,5 +1,5 @@
 /* ---------------------------------------------------------------
-   LNPC Sanctuary AV Guide — router and renderers.
+   LNPC Sanctuary AV Guide: router and renderers.
 
    Plain browser JavaScript, no build step and no dependencies. All
    the words live in content.js; this file only decides how they get
@@ -136,7 +136,7 @@
     var s = LNPC.support;
     return '<div class="support">' +
              '<h2>' + s.name + '</h2>' +
-             '<p>Main office line, answered around the clock — holidays included.</p>' +
+             '<p>Main office line, answered around the clock, holidays included.</p>' +
              '<a class="btn-call" href="tel:' + s.tel + '">📞 Call ' + s.phone + '</a>' +
              '<a class="btn-mail" href="mailto:' + s.email + '">✉️ ' + s.email + '</a>' +
            '</div>';
@@ -234,7 +234,7 @@
         done: done
       }));
     } catch (e) {
-      /* private browsing, full disk — checkmarks just won't persist */
+      /* private browsing, full disk, so checkmarks just won't persist */
     }
   }
 
@@ -418,16 +418,16 @@
      persona pages use, so it can never drift out of sync. */
   function referenceSection(key) {
     switch (key) {
-      /* The lede is skipped here — it talks about tapping steps to
+      /* The lede is skipped here, because it talks about tapping steps to
          check them off, and the reference version is read-only. */
       case 'operator':
         return stepListPlain(LNPC.operator.steps);
 
       case 'listening':
         return blocks(LNPC.listening.body) +
-               '<h3>Path A — your own Auracast hearing aids or earbuds</h3>' +
+               '<h3>Path A: your own Auracast hearing aids or earbuds</h3>' +
                blocks(LNPC.listeningDevice.body) +
-               '<h3>Path B — borrowing a receiver</h3>' +
+               '<h3>Path B: borrowing a receiver</h3>' +
                stepListPlain(LNPC.listeningReceiver.steps);
 
       case 'help':
@@ -464,7 +464,7 @@
   function renderNotFound() {
     return {
       title: 'Not found',
-      html: pageHead('That page has moved', 'Nothing’s broken — this address just doesn’t exist any more.') +
+      html: pageHead('That page has moved', 'Nothing is broken. This address just doesn’t exist any more.') +
             '<a class="jump" href="#/"><span class="jump-icon" aria-hidden="true">🏠</span><span>Back to the start</span></a>'
     };
   }

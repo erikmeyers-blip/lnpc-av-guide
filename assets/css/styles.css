@@ -1,5 +1,5 @@
 /* ---------------------------------------------------------------
-   LNPC Sanctuary AV Guide — mobile-first stylesheet
+   LNPC Sanctuary AV Guide: mobile-first stylesheet
    Read on a phone, often mid-service. Big targets, calm colors,
    nothing that needs a second look.
 
@@ -14,7 +14,7 @@
                                         Appearance control in the footer
 
    The two dark blocks hold identical values and MUST be kept in sync.
-   Nothing outside these three blocks should name a raw color — if you
+   Nothing outside these three blocks should name a raw color. If you
    find yourself writing one, add a token instead.
    --------------------------------------------------------------- */
 
@@ -46,7 +46,7 @@
   --tap:    48px;
 }
 
-/* Dark palette — phone is in dark mode and the reader hasn't forced light */
+/* Dark palette, used when the phone is in dark mode and the reader hasn't forced light */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
@@ -75,7 +75,7 @@
   }
 }
 
-/* Dark palette — forced by the Appearance control. Keep in sync above. */
+/* Dark palette, forced by the Appearance control. Keep in sync above. */
 :root[data-theme="dark"] {
   color-scheme: dark;
 

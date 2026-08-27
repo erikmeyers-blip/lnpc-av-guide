@@ -1,4 +1,4 @@
-/* Tiny local preview server — for looking at the site before pushing.
+/* Tiny local preview server, for looking at the site before pushing.
    Not part of the published site. Run: node serve.js  →  localhost:4173 */
 
 var http = require('http');
