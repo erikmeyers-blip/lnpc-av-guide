@@ -9,7 +9,7 @@
    (**bold with an *italic* inside** works):
      **bold**            -> bold
      *italic*            -> italic
-     `code`              -> monospace (use for names like `Auri_LNPC`)
+     `code`              -> monospace (use for names like `Auri lnpc`)
      [label](#/help/xyz) -> a link
 
    Block types you can use inside a `body` array:
@@ -220,7 +220,8 @@ LNPC.musician = {
 
     { t: 'h', x: 'Where to plug in' },
     { t: 'p', x: 'There are labeled wall jacks near the pulpit and lectern, labeled **Side Pulpit 1** and **Side Pulpit 2**, that take an ordinary XLR mic cable. More inputs (Plate 1 through 10) live in the rack for bigger setups.' },
-    { t: 'p', x: 'They’re already wired through to the mixer and already set up. Plugging in is the whole job.' },
+    { t: 'p', x: 'They’re already wired through to the mixer. For **Side Pulpit 1 and 2**, plugging in really is the whole job: those channels are live with their levels already set.' },
+    { t: 'warn', label: 'The Plate inputs are turned down', x: 'The **Plate 1 to 10** sockets in the rack are wired up but parked with their faders all the way down, because nothing normally lives on them. Plug into one and you will hear nothing until somebody raises that channel. Worth arranging before the service rather than during it.' },
     { t: 'note', label: 'The labels lie a little', x: 'The jack labeled **Side Pulpit 1** is where the piano mic is plugged in, and **Side Pulpit 2** is the vocal mic. The printed labels stayed as they were during setup, so don’t be thrown by the names.' },
 
     { t: 'h', x: 'The piano' },
@@ -289,10 +290,10 @@ LNPC.listeningDevice = {
   body: [
     { t: 'ol', x: [
       'Open your hearing aid app, or your phone’s Bluetooth / Auracast settings, whichever is how you normally switch your hearing aids between things.',
-      'Look for a broadcast named `Auri_LNPC` and connect to it.',
+      'Look for a broadcast named `Auri lnpc` and connect to it. That is a space in the middle, not an underscore, and it is lower case.',
       'Set the volume with your usual hearing aid controls.'
     ]},
-    { t: 'open', label: 'Name still being confirmed', x: 'We expect the broadcast to be called `Auri_LNPC`. If you see something close but not identical, that’s almost certainly it, and this week’s Hospitality team tech volunteer can confirm the exact name.' },
+    { t: 'note', label: 'Getting the name right', x: 'It is written **`Auri lnpc`** on the receiver screens: a space in the middle, and no capitals after the first letter. If your device shows a list, that is the one to pick.' },
     { t: 'note', label: 'You may have to let go of your phone first', x: 'At the training, one person’s hearing aids wouldn’t pick up the broadcast until they stopped the audio their phone was already sending. If nothing shows up, try pausing whatever your phone is playing.' },
     { t: 'note', label: 'A passcode shouldn’t be needed', x: 'Hearing assistance broadcasts are normally left open so anyone can join. If your device asks you for one, don’t guess. Ask a Hospitality team host.' },
     { t: 'p', x: 'There’s no limit on how many personal devices can listen at once, so you’re never taking a spot from someone else.' },
@@ -340,7 +341,7 @@ LNPC.listeningReceiver = {
       id: 'connect',
       title: 'Let it find the service',
       body: [
-        { t: 'p', x: 'It searches on its own and connects, so you don’t have to do anything. The screen shows the name of what it’s listening to, which should read `Auri_LNPC`.' },
+        { t: 'p', x: 'It searches on its own and connects, so you don’t have to do anything. The screen shows the name of what it’s listening to, which should read `Auri lnpc`.' },
         { t: 'p', x: 'If the screen has gone dark, that’s just the battery saver. A quick press of any button wakes it up.' },
         { t: 'note', label: 'Wrong name, or no connection?', x: 'Press the **scan / select** button (front right) to search again. Scroll the list with the front left button or the volume buttons, then press scan / select again to join the one you want.' }
       ]
@@ -411,7 +412,7 @@ LNPC.mixer = {
     ]},
 
     { t: 'h', x: 'Putting everything back: scene recall' },
-    { t: 'p', x: 'All the working settings are saved as a **scene**, named **`ALS-Starting File`** and listed as scene **002**. Recalling it restores every channel at once.' },
+    { t: 'p', x: 'All the working settings are saved as a **scene**, named **`ALS-Starting File`** and listed as scene **B02**. Recalling it restores every channel at once.' },
     { t: 'ol', x: [
       'Press **Home** if you’re somewhere else.',
       'Open the **Scenes** list, in the top corner.',
@@ -425,7 +426,8 @@ LNPC.mixer = {
     { t: 'note', label: 'One scene is the plan', x: '`ALS-Starting File` is the only scene, and that’s deliberate. The church decided to stay on the vendor’s default rather than build up alternatives. If a special service ever needs its own setup, save it under a new name so the default stays untouched.' },
 
     { t: 'h', x: 'Phantom power' },
-    { t: 'p', x: 'The instrument mics, the piano mic and the lectern gooseneck all need **48V phantom power**. It’s deliberately left switched off on the general-purpose channels, so if a musician turns up with an instrument mic, somebody has to switch it on for that channel.' },
+    { t: 'p', x: 'The instrument mics, the piano mic and the lectern gooseneck all need **48V phantom power**.' },
+    { t: 'note', label: 'Where it is already on', x: 'As things stand, **CH3 (the piano)** and **CH5 (the lectern)** have +48V switched on, because those channels are dedicated to mics that always need it. Everything else, including the **Plate** channels a visiting musician would use, is off. So if somebody turns up with an instrument mic, that is the case where you have to switch it on.' },
 
     { t: 'h', x: 'Switching phantom power on for a channel' },
     { t: 'ol', x: [
@@ -469,7 +471,7 @@ LNPC.wireless = {
     { t: 'note', label: 'Two different networks', x: '`AV Net` talks to the mixer and has **no internet on it**. `lnpc` is the church wi-fi that the streaming computer uses for Zoom. Joining an iPad to `AV Net` is expected; putting the **streaming computer** on it would stop Zoom working.' },
     { t: 'note', label: 'iPad, not iPhone', x: 'TF StageMix is an iPad-only app, and it isn’t on Android at all. There’s a second Yamaha app called **Monitor Mix** that does show up on phones. That one is for performers adjusting their own monitors and won’t do what you want here. Don’t mix them up.' },
     { t: 'p', x: 'Several devices can be connected at once, and anything you change is saved on the mixer itself, so a change made from an iPad is there on the touchscreen too, and the other way around.' },
-    { t: 'p', x: 'The mixer is a **Yamaha TF5**.' }
+    { t: 'p', x: 'The mixer is a **Yamaha TF-RACK**, the rack-mounted model in Yamaha’s TF series. Anything written for a TF series desk applies to it.' }
   ]
 };
 
@@ -544,7 +546,7 @@ LNPC.help = {
         { t: 'ol', x: [
           'Press **Home**.',
           'Open the **Scenes** list, top corner.',
-          'Touch **`ALS-Starting File`** (scene 002).',
+          'Touch **`ALS-Starting File`** (scene B02).',
           'Touch **Recall** and confirm.'
         ]},
         { t: 'p', x: 'That restores every channel to the settings that were saved as known-good. Nothing is lost that you’d miss.' }
@@ -569,7 +571,7 @@ LNPC.help = {
           'Check it’s on by holding the black power button on the side. The screen should light. A dark screen may just be the battery saver, so press any button first.',
           'Check the volume with the up and down buttons on the other side. Quiet is far more often this than anything else.',
           'Check the earphone or neck loop is pushed all the way into its jack.',
-          'Look at the name on the screen. It should say `Auri_LNPC`. If it’s showing something else or nothing, press the **scan / select** button to search again.',
+          'Look at the name on the screen. It should say `Auri lnpc`. If it’s showing something else or nothing, press the **scan / select** button to search again.',
           'Still nothing? Switch it off (hold 3 seconds), take a different receiver from the dock, and try that.'
         ]},
         { t: 'note', label: 'If it’s a personal device, not a receiver', x: 'Check the hearing aids or earbuds genuinely do **Auracast**, not just Bluetooth. They are not the same thing, and plenty of good Bluetooth hearing aids can’t do it. Borrowing a receiver always works.' },
@@ -589,12 +591,12 @@ LNPC.help = {
 
         { t: 'h', x: '2. The TV is on the wrong input' },
         { t: 'p', x: 'If the screen is clearly lit, showing a menu, a blue screen or a “no signal” message, the TV is awake but watching the wrong socket.' },
-        { t: 'p', x: 'Press the **INPUT** button on the remote, then step through the list (`HDMI-1`, `HDMI-2`, `HDMI-3`) until the computer’s desktop appears. Leave it there.' },
+        { t: 'p', x: 'Press the **INPUT** button on the remote and choose **`HDMI-1`**. That is the one the streaming computer is plugged into.' },
         { t: 'warn', label: 'How the input gets changed', x: 'The button on the TV itself is a **Power *and* Input button**. While the TV is already on, a quick press doesn’t switch it off. It jumps to the next input. Somebody trying to turn the TV off with it will change the input instead. Use the remote when you can.' },
         { t: 'stop', label: 'Never hold that button down', x: 'Holding it for 3 seconds turns the TV off, which is fine. Holding it for **12 seconds resets the TV to factory settings** and wipes everything. If a press doesn’t do what you expected, let go and reach for the remote.' },
 
         { t: 'note', label: 'Once the meeting is running', x: 'With the Zoom meeting going the computer stays awake, so the sleep version of this doesn’t happen. It’s really a between-times thing, so if you switch everything on well before the service, expect it and don’t panic.' },
-        { t: 'open', x: 'Which HDMI input the computer is plugged into hasn’t been written down anywhere. Once somebody confirms it, naming it here, and on the TV cart card, turns this from a hunt into one press.' },
+        { t: 'note', label: 'If HDMI-1 is blank too', x: 'Then the computer is off or asleep rather than on the wrong input. Wake it, or run through cause 1 above.' },
         { t: 'p', x: 'The TV is a **VIZIO V-Series V505-J09**, if you need to look up a setting or mention it on a support call.' }
       ]
     },
@@ -671,9 +673,7 @@ LNPC.openItems = {
   body: [
     { t: 'ul', x: [
       'Where the hearing assistance charging dock permanently lives. It wants to be near the sanctuary entrance, but that depends on finding a power outlet there.',
-      'A visual confirmation of the exact Auracast broadcast name against a live receiver screen. We expect `Auri_LNPC`.',
-      'Saved camera positions for the Rally Bar Mini: discussed, not yet set up.',
-      'Which input on the TV the streaming computer is plugged into, so it can be named in the troubleshooting steps instead of hunting for it.'
+      'Saved camera positions for the Rally Bar Mini: discussed, not yet set up.'
     ]},
 
     { t: 'h', x: 'Settled since the August 19 training' },
@@ -683,7 +683,9 @@ LNPC.openItems = {
       '**Wireless access point**: stays powered all the time, separate from the rack’s green-dot button.',
       '**PC login PIN**: never printed anywhere. Ask this week’s Hospitality team tech volunteer.',
       '**Auri Manager**: the admin software is Audio Logic’s tool, not something LNPC uses. Deliberately left out of this guide.',
-      '**Mixer scenes**: staying on the vendor’s default, `ALS-Starting File` (scene 002). No extra scenes planned.'
+      '**Mixer scenes**: staying on the vendor’s default, `ALS-Starting File` (scene B02). No extra scenes planned.',
+      '**Auracast broadcast name**: confirmed as `Auri lnpc` off a live receiver screen.',
+      '**TV input**: the streaming computer is on `HDMI-1`.'
     ]},
     { t: 'note', label: 'Deliberately not published', x: 'The PC login PIN and the AV Net wi-fi password are not on this site, on the station cards, or in the printed guide. That was a decision, not an oversight. Ask this week’s Hospitality team tech volunteer, or read the sticker on the router.' }
   ]
