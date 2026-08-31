@@ -102,6 +102,9 @@ LNPC.operator = {
       body: [
         { t: 'p', x: 'Go to the rack in the back room and press the power button marked with a **green dot**. That one press wakes up the mixer, the amplifier, and the rest of the rack together. If you find more than one button dotted, press each of them.' },
         { t: 'p', x: 'Then **wait 30 to 60 seconds** while it boots. Nothing will work until it finishes, and that’s normal.' },
+        { t: 'img', src: 'assets/img/rack.jpg', w: 737, h: 1000,
+          alt: 'The equipment rack from the front, with the wireless receivers at the top, the power conditioner below them carrying a green dot beside its switch, then the Yamaha mixer, the amplifier, the row of Plate sockets and two more amplifiers',
+          caption: 'The rack, top to bottom. The green dot is on the **power strip, second from the top**, next to its switch.' },
         { t: 'note', label: 'The green dots are the instructions', x: 'A green dot means *this one is yours to press*. Anything without one isn’t. Every level, knob and cable in that rack is already set the way it should be, so there is nothing else in there you need to touch, or should.' },
         { t: 'note', label: 'You don’t turn on the mics', x: 'Every microphone comes up already live when the rack powers on. There are no individual mic switches to remember.' },
         { t: 'note', label: 'The wireless box stays on', x: 'The wireless access point on top of the rack is **not** on this button. It stays powered all the time, because it is slow to boot. Nothing to do with it on a normal Sunday.' }
@@ -312,9 +315,9 @@ LNPC.listeningReceiver = {
       title: 'Pick one up',
       body: [
         { t: 'p', x: 'The receivers live in a charging dock, most likely **near the sanctuary entrance**. If you can’t see it, ask a **Hospitality team host**. They’ll know where it is and they’re happy to help you get set up.' },
-        { t: 'img', src: 'assets/img/auri-receivers.jpg', w: 753, h: 1000,
-          alt: 'Black Auri charging dock with four numbered slots, three small receivers sitting in it with lights glowing on top',
-          caption: 'This is what you’re looking for. Lift one straight out of its slot. It switches itself on as you do.' },
+        { t: 'img', src: 'assets/img/auri-receivers.jpg', w: 1000, h: 751,
+          alt: 'Four Auri receivers sitting in their black charging dock, two of them with lit screens reading Auri lnpc',
+          caption: 'This is what you’re looking for. Lift one straight out of its slot. It switches itself on as you do, and the screen shows **`Auri lnpc`**, which is the church’s broadcast.' },
         { t: 'open', x: 'The dock’s permanent home isn’t settled yet, because it depends on where there is a power outlet near the entrance. Until it’s fixed in one place, asking a Hospitality team host is the reliable way to find it.' }
       ]
     },
@@ -322,11 +325,17 @@ LNPC.listeningReceiver = {
       id: 'accessory',
       title: 'Choose how you want to listen',
       body: [
-        { t: 'ul', x: [
-          '**Earset**: a small earphone that plugs into the headphone jack. This is the one most people want.',
-          '**T-coil neck loop**: plugs into the lanyard jack and sends the sound straight into a telecoil-compatible hearing aid. Nothing goes in your ear at all.'
-        ]},
-        { t: 'note', label: 'Which is which', x: 'If your hearing aids have a telecoil setting, the neck loop is usually the nicer experience. If you’re not sure, take the earset.' }
+        { t: 'p', x: 'There are two, and either one plugs into the receiver you just picked up.' },
+
+        { t: 'img', src: 'assets/img/earset.jpg', w: 676, h: 900,
+          alt: 'A single black ear speaker with a soft hook that rests over the ear, on a thin cable, with a short extension lead beside it',
+          caption: '**The ear speaker.** It hooks over one ear rather than going inside it. This is the one most people want. If the cable is too short, there is an extension lead in the bag with it.' },
+
+        { t: 'img', src: 'assets/img/neck-loop.jpg', w: 676, h: 900,
+          alt: 'A thin black cord worn as a loop around the neck, with a plug on the end, in its bag',
+          caption: '**The neck loop.** You wear it around your neck and it sends the sound straight into a telecoil hearing aid. Nothing goes in your ear at all.' },
+
+        { t: 'note', label: 'Which is which', x: 'If your hearing aids have a telecoil setting, the neck loop is usually the nicer experience. If you’re not sure, take the ear speaker.' }
       ]
     },
     {
