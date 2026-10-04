@@ -145,13 +145,15 @@ LNPC.operator = {
           ['Microphone', 'iRig Pro'],
           ['Speaker', 'Rally Bar Mini'],
           ['Original sound for musicians', 'ON'],
-          ['Echo cancellation', 'OFF'],
+          ['Echo cancellation (under Original sound)', 'OFF'],
           ['Automatically adjust mic volume', 'OFF']
         ]},
         { t: 'note', label: 'Why bother every week', x: 'Zoom updates quietly reset these. And the sanctuary system hands Zoom a finished, balanced mix. Zoom’s helpful auto-adjusting and echo cancellation are built for a laptop mic, so they end up fighting the mix instead.' },
         { t: 'p', x: 'The little **green microphone indicator** in the corner of the Zoom window is your confirmation that sound is actually reaching Zoom. If you’re unsure, run Zoom’s own *Test Speaker & Microphone*.' },
+        { t: 'note', label: 'There are four more, but they are set once', x: 'Under **Settings → Audio → Advanced** there are four further settings that were changed to fix the piano sounding poor online. They are not part of the weekly check, but if music ever goes bad again they are the first place to look.' },
         { t: 'jump', to: '#/help/no-internet', icon: '🔧', x: 'If Zoom won’t connect at all' },
-        { t: 'jump', to: '#/help/stream-sound', icon: '🔧', x: 'If people online can’t hear anything' }
+        { t: 'jump', to: '#/help/stream-sound', icon: '🔧', x: 'If people online can’t hear anything' },
+        { t: 'jump', to: '#/help/music-quality', icon: '🎹', x: 'If music or piano sounds poor online' }
       ]
     },
     {
@@ -529,7 +531,7 @@ LNPC.help = {
         { t: 'ol', x: [
           'Check Zoom isn’t muted. Muting Zoom cuts off the whole sanctuary feed, not just the little mic at the cart.',
           'Re-check Zoom’s **Microphone** is set to **iRig Pro** and **Speaker** to **Rally Bar Mini**. Zoom updates reset these silently.',
-          'Check **Original sound for musicians** is still ON and **echo cancellation** is OFF.',
+          'Check **Original sound for musicians** is still ON, and that the **echo cancellation** checkbox underneath it is OFF.',
           'Run Zoom’s *Test Speaker & Microphone* to work out whether the problem is in Zoom or upstream of it.',
           'On the mixer, check the channel is actually being sent to **output B** (the stream), not just A (the room).'
         ]},
@@ -544,6 +546,31 @@ LNPC.help = {
         { t: 'p', x: '**Too quiet on one feed only**, fine in the room but thin online, is that channel’s A/B/C output level rather than its main fader. A is the room, B is the stream, C is hearing assistance.' },
         { t: 'note', label: 'The level knob at the cart', x: 'There’s a small level meter and control on the iRig at the cart, set in the middle. If everything on the stream is distorted but the balance sounds right, easing that down slightly is the fix. Note where it was before you move it, and move it a little at a time.' },
         { t: 'jump', to: '#/mixer', icon: '🎛️', x: 'How the A / B / C levels work' }
+      ]
+    },
+    {
+      id: 'music-quality',
+      q: 'The piano or other music sounds poor on the stream',
+      body: [
+        { t: 'p', x: 'Speech is fine but music comes out thin, swirly or squashed. This was a real problem here and it has been solved, so the job is usually to check that the fix is still in place rather than to find a new one.' },
+
+        { t: 'h', x: '1. The two settings on the main audio page' },
+        { t: 'ul', x: [
+          '**Original sound for musicians** is ON.',
+          'The **echo cancellation** checkbox underneath it is OFF.'
+        ]},
+
+        { t: 'h', x: '2. The four under Advanced' },
+        { t: 'p', x: 'Go to **Settings → Audio → Advanced**. These are what finally fixed the piano. Windows was processing the sound before Zoom ever saw it, which is fine for a laptop mic and ruinous for a mixed music feed.' },
+        { t: 'rows', x: [
+          ['Signal processing by Windows audio device drivers', 'Off'],
+          ['Windows system audio enhancements', 'Off'],
+          ['Echo cancellation (the one under Advanced)', 'Low'],
+          ['Audio capture and playback API', 'Auto']
+        ]},
+        { t: 'warn', label: 'Two different settings share a name', x: 'There is an **echo cancellation** checkbox under Original sound, which stays **off**, and a separate **echo cancellation** dropdown under Audio → Advanced, which is set to **Low**. They are different controls. Both values above are correct, even though they look like they contradict each other.' },
+        { t: 'open', x: 'The two Windows settings being **Off** is the confirmed part. The Low and Auto values are from memory and are being double-checked at the cart.' },
+        { t: 'note', label: 'Why this can come back', x: 'The Windows ones change a system setting rather than a Zoom one, so a Windows update or a new audio driver can quietly switch them back on. If music was fine for months and then went bad on its own, check here first.' }
       ]
     },
     {
@@ -682,7 +709,8 @@ LNPC.openItems = {
   body: [
     { t: 'ul', x: [
       'Where the hearing assistance charging dock permanently lives. It wants to be near the sanctuary entrance, but that depends on finding a power outlet there.',
-      'Saved camera positions for the Rally Bar Mini: discussed, not yet set up.'
+      'Saved camera positions for the Rally Bar Mini: discussed, not yet set up.',
+      'The exact values of the four Zoom settings under Audio and then Advanced. The two Windows ones are confirmed Off; the other two are from memory.'
     ]},
 
     { t: 'h', x: 'Settled since the August 19 training' },
