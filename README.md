@@ -8,7 +8,7 @@ It is a plain static site: HTML, one stylesheet, two scripts. No build step, no
 dependencies, no framework. You can open `index.html` directly in a browser and
 it works.
 
-## The five doors in
+## The six doors in
 
 The home screen asks what you're here to do, and each answer is a complete path
 rather than a chapter of a manual:
@@ -17,6 +17,7 @@ rather than a chapter of a manual:
 |---|---|---|
 | I'm running sound & streaming | `#/operator` | The Sunday volunteer, start to finish |
 | I'm playing or singing | `#/musician` | Musicians and guest performers |
+| Something extra today | `#/extras` | A guest mic (`#/add-mic`) or a video to show (`#/share`) |
 | I want to hear better | `#/listening` | Congregation, forks into Auracast vs. borrowed receiver |
 | Something's not working | `#/help` | Symptom-first troubleshooting |
 | Full reference | `#/reference` | Everything on one page, for trained techs |

@@ -66,6 +66,12 @@ LNPC.home = {
       sub: 'Where to plug in, which mics to use, what you can safely ignore.'
     },
     {
+      to: '#/extras',
+      icon: '✨',
+      title: 'Something extra today',
+      sub: 'A guest musician’s mic, or a video to show the room and Zoom.'
+    },
+    {
       to: '#/listening',
       icon: '👂',
       title: 'I want to hear better',
@@ -207,6 +213,7 @@ LNPC.operator = {
     }
   ],
   after: [
+    { t: 'jump', to: '#/extras',   icon: '✨', x: 'Something extra today: a guest mic, or a video to show' },
     { t: 'jump', to: '#/mixer',    icon: '🎛️', x: 'Mixer reference: channels, levels, scene recall' },
     { t: 'jump', to: '#/wireless', icon: '📶', x: 'Adjusting the mixer from an iPad' },
     { t: 'jump', to: '#/help',     icon: '🔧', x: 'Something’s not working' }
@@ -235,7 +242,8 @@ LNPC.musician = {
       'The lid can stay closed. It rests on the cord and that’s fine.',
       'It goes into its own dedicated line input, not the wall plate meant for vocal mics. That’s already connected, so there is nothing to plug in.'
     ]},
-    { t: 'note', label: 'If the piano sounds wrong online', x: 'Where the mic sits changes the tone more than the volume: closer to the hammers is brighter, further back is softer. Now that it’s permanently mounted, moving it is a between-services job, not something to fiddle with on a Sunday.' },
+    { t: 'note', label: 'If the piano sounds wrong online', x: 'Look at the Zoom settings first. When the piano sounded poor online, the cause turned out to be Zoom and Windows processing the sound, not the microphone. Where the mic sits does change the tone, closer to the hammers is brighter and further back is softer, but now that it’s permanently mounted, moving it is a between-services job.' },
+    { t: 'jump', to: '#/help/music-quality', icon: '🎹', x: 'The Zoom settings that fixed the piano' },
     { t: 'note', label: 'Piano in the room vs. online', x: 'The piano is set to go to the live stream and the hearing assistance feed, and to sit low or off in the room speakers, because the room already has a piano in it. That was a deliberate choice and it can be changed if you’d prefer it different. Just ask.' },
 
     { t: 'h', x: 'The instrument mics' },
@@ -246,8 +254,8 @@ LNPC.musician = {
     { t: 'img', src: 'assets/img/instrument-mics.jpg', w: 753, h: 1000,
       alt: 'Two silver Shure KSM137 condenser microphones mounted on a black stereo bar on a tripod stand',
       caption: 'Both mics on the stereo bar, on one stand. This is what the ensemble setup looks like put together.' },
-    { t: 'warn', label: 'These two need a tech first', x: 'The instrument mics need **phantom power** (48V) switched on for their channel, and the church chose to leave phantom power **off** by default. Ask this week’s Hospitality team tech volunteer to switch it on before you play. It takes about a minute on the mixer.' },
-    { t: 'jump', to: '#/mixer', icon: '🎛️', x: 'Show them how to switch phantom power on' },
+    { t: 'warn', label: 'These two need a tech first', x: 'The instrument mics plug into **Plate 1** and **Plate 2** on the rack, and those channels are parked: turned down, with **phantom power** (48V) off. Somebody has to switch the power on and set a level before you play. Ask this week’s Hospitality team tech volunteer, and allow ten minutes before the service rather than during it.' },
+    { t: 'jump', to: '#/add-mic', icon: '🎻', x: 'Show them the guest mic walkthrough' },
     { t: 'stop', label: 'Never yank a live mic', x: 'Don’t unplug an instrument or piano mic while its channel is on. Phantom power plus an unplugged cable makes a loud pop that can damage the speakers. Turn the channel off first, then unplug.' },
 
     { t: 'h', x: 'The lectern mic' },
@@ -434,22 +442,19 @@ LNPC.mixer = {
 
     { t: 'h', x: 'Scenes for special Sundays' },
     { t: 'p', x: 'You can save extra named scenes, a Christmas setup with extra players for instance, without touching the everyday one. Individual channels can be saved as presets too.' },
-    { t: 'note', label: 'One scene is the plan', x: '`ALS-Starting File` is the only scene, and that’s deliberate. The church decided to stay on the vendor’s default rather than build up alternatives. If a special service ever needs its own setup, save it under a new name so the default stays untouched.' },
+    { t: 'note', label: 'There are two scenes now', x: '`ALS-Starting File` is the everyday one. A second was set up for the Presbytery meeting. The name in the top left corner of the screen shows which is loaded, and on an ordinary Sunday it should be the starting file.' },
+    { t: 'note', label: 'Reading the scene list', x: 'An **arrow** marks the scene that is really loaded. A row that is highlighted or blinking is only the one you have scrolled to, and nothing changes until you press **Recall**.' },
+    { t: 'note', label: 'Storing a new one', x: 'Open **Scenes**, touch a **blank** row, touch **Store**, name it and press OK. Always a blank row, so the starting file is never overwritten.' },
+    { t: 'warn', label: 'Recall throws away anything unsaved', x: 'Levels set by hand for a guest musician last only until the next recall. That is useful afterwards, and a nasty surprise if someone recalls a scene five minutes before the service.' },
 
     { t: 'h', x: 'Phantom power' },
     { t: 'p', x: 'The instrument mics, the piano mic and the lectern gooseneck all need **48V phantom power**.' },
     { t: 'note', label: 'Where it is already on', x: 'As things stand, **CH3 (the piano)** and **CH5 (the lectern)** have +48V switched on, because those channels are dedicated to mics that always need it. Everything else, including the **Plate** channels a visiting musician would use, is off. So if somebody turns up with an instrument mic, that is the case where you have to switch it on.' },
 
     { t: 'h', x: 'Switching phantom power on for a channel' },
-    { t: 'ol', x: [
-      'Plug the mic in **first**, while phantom power is still off.',
-      'Pull that channel’s **fader all the way down**, or switch the channel off. Do this before you touch the 48V button, in both directions.',
-      'Press **Home**, then touch the channel you want so it’s selected.',
-      'Touch the **top box on the channel strip**, the input and gain area. That opens the INPUT screen.',
-      'Touch the **+48V** button so it’s on.',
-      'Bring the fader back up and set the level.'
-    ]},
-    { t: 'p', x: 'Reverse it the same way when the musician is done: fader down, +48V off, then unplug.' },
+    { t: 'p', x: 'In short: plug the mic in first, pull the channel’s level right down, open the channel from the Home screen and touch **+48V**, which turns red. Then set the gain and bring the level up. Reverse it the same way afterwards: level down, +48V off, then unplug.' },
+    { t: 'p', x: 'The full walkthrough, including which mics need it and how to set the gain, has its own page.' },
+    { t: 'jump', to: '#/add-mic', icon: '🎻', x: 'Adding a mic for a guest musician' },
 
     { t: 'warn', label: 'If nothing happens, check the master switch', x: 'There is a separate **+48V Master** button in the mixer’s setup screen. While that is off, no channel gets phantom power no matter what its own +48V button says. It’s the usual reason a mic stays silent after somebody was sure they switched it on.' },
 
@@ -571,6 +576,19 @@ LNPC.help = {
         { t: 'warn', label: 'Two different settings share a name', x: 'There is an **echo cancellation** checkbox under Original sound, which stays **off**, and a separate **echo cancellation** dropdown under Audio → Advanced, which is set to **Low**. They are different controls. Both values above are correct, even though they look like they contradict each other.' },
         { t: 'open', x: 'The two Windows settings being **Off** is the confirmed part. The Low and Auto values are from memory and are being double-checked at the cart.' },
         { t: 'note', label: 'Why this can come back', x: 'The Windows ones change a system setting rather than a Zoom one, so a Windows update or a new audio driver can quietly switch them back on. If music was fine for months and then went bad on its own, check here first.' }
+      ]
+    },
+    {
+      id: 'share-echo',
+      q: 'People online hear an echo when we play a video',
+      body: [
+        { t: 'p', x: 'They are getting the clip twice: once straight from the computer through **Share sound**, and again a moment later through the room microphones, which can hear the speaker.' },
+        { t: 'ol', x: [
+          'While the clip plays, click **Mute** in Zoom. The shared sound carries on without the microphones.',
+          'When the clip ends, stop sharing and **unmute** straight away.'
+        ]},
+        { t: 'note', label: 'The other way round', x: 'If people online hear the clip faintly and from far away, **Share sound** was not ticked, and they are only getting it through the room microphones. Stop sharing and start again with the box ticked.' },
+        { t: 'jump', to: '#/share', icon: '🎬', x: 'Showing a video or playing audio, step by step' }
       ]
     },
     {
@@ -710,7 +728,11 @@ LNPC.openItems = {
     { t: 'ul', x: [
       'Where the hearing assistance charging dock permanently lives. It wants to be near the sanctuary entrance, but that depends on finding a power outlet there.',
       'Saved camera positions for the Rally Bar Mini: discussed, not yet set up.',
-      'The exact values of the four Zoom settings under Audio and then Advanced. The two Windows ones are confirmed Off; the other two are from memory.'
+      'The exact values of the four Zoom settings under Audio and then Advanced. The two Windows ones are confirmed Off; the other two are from memory.',
+      'Photos from Luke of each mixer screen in the guest mic walkthrough, and exactly which control sends a channel to the house, the stream and hearing assistance.',
+      'The name and number of the scene set up for the Presbytery meeting.',
+      'Showing a video with sound has been worked out on paper but not yet tried in the sanctuary.',
+      'Whether the cart computer’s sound can be fed into the mixer, so clips play through the main speakers and reach the hearing assistance receivers.'
     ]},
 
     { t: 'h', x: 'Settled since the August 19 training' },
@@ -720,11 +742,251 @@ LNPC.openItems = {
       '**Wireless access point**: stays powered all the time, separate from the rack’s green-dot button.',
       '**PC login PIN**: never printed anywhere. Ask this week’s Hospitality team tech volunteer.',
       '**Auri Manager**: the admin software is Audio Logic’s tool, not something LNPC uses. Deliberately left out of this guide.',
-      '**Mixer scenes**: staying on the vendor’s default, `ALS-Starting File` (scene B02). No extra scenes planned.',
+      '**Mixer scenes**: `ALS-Starting File` (scene B02) is the everyday default. A second scene now exists for the Presbytery meeting.',
+      '**Instrument mics**: the two KSM137s do need 48V phantom power, confirmed with Luke against the Shure paperwork.',
       '**Auracast broadcast name**: confirmed as `Auri lnpc` off a live receiver screen.',
       '**TV input**: the streaming computer is on `HDMI-1`.'
     ]},
     { t: 'note', label: 'Deliberately not published', x: 'The PC login PIN and the AV Net wi-fi password are not on this site, on the station cards, or in the printed guide. That was a decision, not an oversight. Ask this week’s Hospitality team tech volunteer, or read the sticker on the router.' }
+  ]
+};
+
+/* ---------------------------------------------------------------
+   Something extra today: the hub for the Sundays that are not ordinary
+   --------------------------------------------------------------- */
+
+LNPC.extras = {
+  title: 'Something extra today',
+  lede: 'For the Sundays that are not ordinary: a guest musician, a clip to show, or a meeting that used a different setup.',
+  body: [
+    { t: 'jump', to: '#/add-mic', icon: '🎻', x: 'Add a mic for a guest musician' },
+    { t: 'jump', to: '#/share',   icon: '🎬', x: 'Show a video or play audio to the room and Zoom' },
+
+    { t: 'h', x: 'First, check which scene is loaded' },
+    { t: 'p', x: 'The mixer now holds more than one scene. As well as the everyday **`ALS-Starting File`**, there is one that was set up for the Presbytery meeting.' },
+    { t: 'p', x: 'The name in the **top left corner** of the mixer screen tells you which one is loaded. On an ordinary Sunday it should read `ALS-Starting File`. If it says anything else, recall the starting scene before the service.' },
+    { t: 'note', label: 'Reading the scene list', x: 'In the list, an **arrow** marks the scene that is really loaded. A row that is highlighted or blinking is only the one you have scrolled to. Nothing changes until you press **Recall**.' },
+    { t: 'open', x: 'The exact name and number of the Presbytery meeting scene still needs writing down. It sits next to the starting scene in the list.' },
+    { t: 'jump', to: '#/help/mixer-changed', icon: '🔧', x: 'How to recall the starting scene' }
+  ]
+};
+
+/* ---------------------------------------------------------------
+   Adding a guest mic. From the walkthrough with Luke (Audio Logic
+   Systems) at the rack. Photos of each screen are to follow.
+   --------------------------------------------------------------- */
+
+LNPC.addMic = {
+  title: 'Adding a mic for a guest musician',
+  lede: 'For when someone brings a cello, a violin, or a second voice. About ten minutes at the rack, and far easier before people arrive than during the prelude.',
+  intro: [
+    { t: 'p', x: 'Luke from Audio Logic Systems walked us through this at the rack. What follows is that walkthrough written down. Photos of each screen are on their way and will be added here.' },
+
+    { t: 'h', x: 'Before you start: does this mic need power?' },
+    { t: 'p', x: 'Some microphones need the mixer to send power to them down the cable. It is called **phantom power**, and on the mixer it is a button marked **+48V**. Other mics should not be given it. So the first job is knowing which kind you are holding.' },
+    { t: 'rows', x: [
+      ['The two Shure KSM137 instrument mics', 'Yes, both'],
+      ['The piano mic', 'Yes. Already on'],
+      ['The lectern gooseneck', 'Yes. Already on'],
+      ['The wireless handheld and lavalier', 'No'],
+      ['An ordinary handheld singing mic', 'No'],
+      ['A keyboard, or anything with its own power', 'No'],
+      ['A guest’s own mic that you don’t recognize', 'Ask them']
+    ]},
+    { t: 'note', label: 'How we know about the instrument mics', x: 'Luke’s first guess was that they would not need it. Then we checked the Shure paperwork, which says phantom, 48 volts. So it is on for both of them.' },
+    { t: 'note', label: 'If nobody knows', x: 'Leave it off and try the mic. One that needs power simply stays silent without it, which is easy to spot and does no harm. Luke’s rule is the same as Yamaha’s: don’t switch it on for anything that doesn’t need it.' }
+  ],
+  steps: [
+    {
+      id: 'plug',
+      title: 'Plug the mic in',
+      body: [
+        { t: 'p', x: 'Instrument mics go into the row of sockets on the rack marked **Plate 1** to **Plate 10**. Use **Plate 1** for the first mic and **Plate 2** for the second.' },
+        { t: 'p', x: 'Do this before you touch anything on the screen. Cables go in and come out only while the +48V button is off.' },
+        { t: 'note', label: 'Singing rather than playing?', x: 'A vocal mic at the front can go into **Side Pulpit 2**, which is already live with its level set. None of the steps below are needed for that.' }
+      ]
+    },
+    {
+      id: 'find',
+      title: 'Find that channel on the screen',
+      body: [
+        { t: 'p', x: 'Press **Home**. The channels are named after the sockets, so the mic in Plate 1 is the channel labeled **Plate 1**, which is CH7. Plate 2 is CH8.' },
+        { t: 'p', x: 'Touch the top of that channel’s strip to open its settings. Line your finger up beside it before you press. The strips are narrow, and it is easy to open the one next door by mistake.' }
+      ]
+    },
+    {
+      id: 'power',
+      title: 'Switch on 48V, if this mic needs it',
+      body: [
+        { t: 'p', x: 'Pull that channel’s level all the way down first. Then touch **+48V**. The button turns **red** when it is on.' },
+        { t: 'p', x: 'For the two KSM137s, that means on for both Plate 1 and Plate 2. For a mic that doesn’t need it, skip this step and leave the button gray.' },
+        { t: 'warn', label: 'Red, but still silent?', x: 'There is a separate **+48V Master** switch in the mixer’s setup screen. While that is off, no channel gets power whatever its own button says.' }
+      ]
+    },
+    {
+      id: 'on',
+      title: 'Make sure the channel is on',
+      body: [
+        { t: 'p', x: 'Each channel has an **ON** button above its fader, and it should be lit. The Plate channels are normally left on with their faders pulled right down, so there is usually nothing to do here. Check anyway.' }
+      ]
+    },
+    {
+      id: 'gain',
+      title: 'Set the gain',
+      body: [
+        { t: 'p', x: 'Gain is how much the mixer boosts the mic before anything else happens to it. Ask the musician to play the way they will in the service, not politely.' },
+        { t: 'p', x: 'Raise the gain while you watch the small meter beside it, the one that runs left to right. It lights green as sound arrives. You are aiming for the green to reach the **middle bar**.' },
+        { t: 'ul', x: [
+          'Barely flickering at the left: too low. Turn it up.',
+          'Past the middle: too much. Bring it back.',
+          'These mics want the gain fairly high, so don’t be alarmed by the number.'
+        ]},
+        { t: 'note', label: 'The manual agrees', x: 'Yamaha calls that meter the GainFinder, and its instruction is the same as Luke’s: adjust the gain until the center lights up.' }
+      ]
+    },
+    {
+      id: 'sends',
+      title: 'Send it to the room, the stream and hearing assistance',
+      body: [
+        { t: 'p', x: 'Every channel goes to three places, and each has its own level.' },
+        { t: 'rows', x: [
+          ['The stream (Zoom)', 'Was already all the way up'],
+          ['Hearing assistance', 'Check it, raise if needed'],
+          ['The house speakers', 'Raise until it sounds right']
+        ]},
+        { t: 'p', x: 'Luke pointed out that the house has a **left and a right**. Turn up both, or half the room gets nothing.' },
+        { t: 'open', x: 'Exactly which screen and which control does each of these is the part that needs Luke’s photos. Until they are here, the mixer page describes the other way in, using the knobs.' },
+        { t: 'jump', to: '#/mixer', icon: '🎛️', x: 'Three destinations, one channel' }
+      ]
+    },
+    {
+      id: 'second',
+      title: 'Do the same for the second mic',
+      body: [
+        { t: 'p', x: 'Plate 2, same steps: 48V, gain to the middle, three destinations. You will usually be using the two instrument mics together.' },
+        { t: 'note', label: 'Telling them apart', x: 'While you work, one will be turned up in the house and the other still down. That is the quickest way to see which channel you are on.' }
+      ]
+    },
+    {
+      id: 'listen',
+      title: 'Listen in all three places',
+      body: [
+        { t: 'ul', x: [
+          '**In the room.** Stand where people sit, not at the rack.',
+          '**Online.** Join the meeting on a phone with earbuds in, or ask someone at home.',
+          '**Hearing assistance.** Borrow a receiver and listen for a moment.'
+        ]}
+      ]
+    },
+    {
+      id: 'after',
+      title: 'Afterwards, put it all back',
+      body: [
+        { t: 'ol', x: [
+          'Pull both levels all the way down.',
+          'Switch **+48V** off on both channels.',
+          'Only then unplug the mics, and put them back in their case.',
+          'Recall **`ALS-Starting File`** so the mixer is back to normal for next Sunday.'
+        ]},
+        { t: 'jump', to: '#/help/mixer-changed', icon: '🔧', x: 'How to recall the starting scene' }
+      ]
+    }
+  ],
+  after: [
+    { t: 'h', x: 'Worth knowing' },
+    { t: 'warn', label: 'Recalling a scene undoes all of this', x: 'When a scene was recalled at the end of the walkthrough, Plate 1 went straight back to all the way down. Anything you set up by hand lasts only until the next recall. So don’t recall between setting up and the service, and do recall once it is over.' },
+    { t: 'note', label: 'Keeping a setup for next time', x: 'A setup you will want again, Christmas with the string players say, can be stored as a scene of its own. Open **Scenes**, touch a **blank** row, touch **Store**, give it a name and press OK. Always a blank row. Never store over `ALS-Starting File`.' },
+
+    { t: 'h', x: 'Settings for other kinds of mic' },
+    { t: 'ul', x: [
+      'Every Plate channel has its own gain and its own tone controls, so nothing you do on Plate 1 changes any other mic.',
+      '**A handheld singing mic on a Plate:** the same steps without the 48V. The gain will land somewhere different, so set it by the meter rather than copying a number.',
+      '**Something loud with its own volume,** a keyboard for instance: start with the gain low and come up.',
+      '**The wireless mics, the lectern, the piano and the Side Pulpit jacks** are already set. Leave their gain alone.'
+    ]},
+    { t: 'jump', to: '#/help', icon: '🔧', x: 'Something doesn’t sound right' }
+  ]
+};
+
+/* ---------------------------------------------------------------
+   Sharing a video or audio with the room and with Zoom at once.
+   Reasoned from how Zoom and this system are wired. Not yet tried
+   in the sanctuary, and flagged as such on the page.
+   --------------------------------------------------------------- */
+
+LNPC.share = {
+  title: 'Showing a video or playing audio',
+  lede: 'For when the room and the people online should see and hear the same clip. The good news first: Zoom never plays your own share back at you.',
+  intro: [
+    { t: 'h', x: 'Where the sound goes' },
+    { t: 'ul', x: [
+      '**To the people online:** when you tick **Share sound**, Zoom sends the computer’s sound straight down the wire. It is a clean copy and no microphone is involved.',
+      '**To the room:** the clip plays out of the computer’s own speaker, once. Zoom does not send it back to you, so nothing comes around a second time.',
+      '**The catch:** the microphones in the room hear that speaker, and the mixer sends what they hear to Zoom as well. So people online get the clip twice, a clean copy and a roomy late one on top of it.'
+    ]},
+    { t: 'note', label: 'Why Zoom doesn’t tidy that up', x: 'Normally Zoom’s echo cancellation would remove the second copy. Ours is switched off on purpose, because it wrecks live music. So for the length of a clip, the fix is done by hand: mute the microphone in Zoom.' }
+  ],
+  steps: [
+    {
+      id: 'ready',
+      title: 'Get the clip ready before the service',
+      body: [
+        { t: 'p', x: 'Open the video or the audio on the cart computer and leave it paused at the start. Play a few seconds once, to set how loud it is in the room, then rewind.' }
+      ]
+    },
+    {
+      id: 'share',
+      title: 'Start sharing, with sound',
+      body: [
+        { t: 'ol', x: [
+          'In Zoom, click **Share**.',
+          'Pick the window with the clip in it.',
+          'Tick **Share sound** at the bottom of that box. This is the step that gets forgotten.',
+          'If there is an **Optimize for video clip** box beside it, tick that too for a video.',
+          'Click **Share**.'
+        ]},
+        { t: 'note', label: 'Only music, no picture?', x: 'In the same box, look under **Advanced** for **Computer audio**. That sends the sound without sharing the screen.' }
+      ]
+    },
+    {
+      id: 'mute',
+      title: 'Mute the microphone in Zoom',
+      body: [
+        { t: 'p', x: 'While you are sharing, Zoom’s controls move to a bar at the top of the screen. Click **Mute** there, just before you press play.' },
+        { t: 'p', x: 'The shared sound carries on while you are muted. Muting only stops the room microphones adding their late copy.' }
+      ]
+    },
+    {
+      id: 'play',
+      title: 'Play it',
+      body: [
+        { t: 'p', x: 'To make it louder or quieter in the room, use the volume on the computer or the TV. That changes what the room hears and nothing else. People online are unaffected.' },
+        { t: 'warn', label: 'Turn it down, don’t mute it', x: 'Muting the computer’s speaker outright can silence the share for the people online as well, depending on the version of Windows. If the room needs it quieter, turn it down instead.' }
+      ]
+    },
+    {
+      id: 'unmute',
+      title: 'Stop sharing, then unmute',
+      body: [
+        { t: 'p', x: 'Click **Stop Share**, then **Unmute**.' },
+        { t: 'stop', label: 'Don’t walk away muted', x: 'Until you unmute, people online hear nothing of the service at all. This is the one mistake in the whole procedure that really matters.' }
+      ]
+    }
+  ],
+  after: [
+    { t: 'h', x: 'If you would rather keep it simple' },
+    { t: 'p', x: 'You can skip all of this: leave **Share sound** unticked, don’t mute, and just play the clip in the room. People online then hear it through the room microphones. It works, but it sounds distant, and for anything with music in it the proper way above is worth the three extra clicks.' },
+
+    { t: 'h', x: 'Not yet tried in the sanctuary' },
+    { t: 'open', x: 'This procedure is worked out from how Zoom behaves and how the system is wired. Nobody has run it in the room yet. It needs one five-minute test before it is relied on.' },
+    { t: 'ol', x: [
+      'Have a second person join the meeting on a phone with earbuds, from another room.',
+      'Share a clip with sound and leave the microphone **unmuted**. They should hear the doubling.',
+      'Mute in Zoom. The doubling should stop and the clip should carry on.',
+      'Note which speaker the clip comes out of in the room, and whether it is loud enough from the back.'
+    ]},
+    { t: 'open', label: 'Questions for Luke', x: 'Can the computer’s sound be fed into the mixer, so a clip plays through the main speakers? As it stands a clip comes out of the small speaker at the cart, and people using the hearing assistance receivers only get whatever the room microphones pick up.' },
+    { t: 'jump', to: '#/help/share-echo', icon: '🔧', x: 'People online hear an echo during a clip' }
   ]
 };
 
@@ -740,6 +1002,8 @@ LNPC.reference = {
     { id: 'mixer',     heading: 'The mixer',                     from: 'mixer'     },
     { id: 'wireless',  heading: 'Controlling the mixer wirelessly', from: 'wireless' },
     { id: 'musician',  heading: 'Musicians and performers',      from: 'musician'  },
+    { id: 'addmic',    heading: 'Adding a mic for a guest musician', from: 'addMic' },
+    { id: 'share',     heading: 'Showing a video or playing audio',  from: 'share'  },
     { id: 'listening', heading: 'Hearing assistance',            from: 'listening' },
     { id: 'symptoms',  heading: 'Troubleshooting by symptom',    from: 'help'      },
     { id: 'open',      heading: 'Still being confirmed',         from: 'openItems' },

@@ -371,6 +371,22 @@
     };
   }
 
+  /* A page that is some introduction, a checklist, then some notes.
+     Used by the guest mic and video sharing walkthroughs. */
+  function renderStepsPage(key, back) {
+    var p = LNPC[key];
+    return {
+      title: p.title,
+      html: pageHead(p.title, p.lede) + blocks(p.intro) + stepList(p.steps, key) + blocks(p.after),
+      back: back
+    };
+  }
+
+  function renderExtras() {
+    var p = LNPC.extras;
+    return { title: p.title, html: pageHead(p.title, p.lede) + blocks(p.body) };
+  }
+
   function renderMixer() {
     var p = LNPC.mixer;
     return { title: p.title, html: pageHead(p.title, p.lede) + blocks(p.body) };
@@ -436,6 +452,9 @@
         }).join('');
 
       default:
+        if (LNPC[key].steps) {
+          return blocks(LNPC[key].intro) + stepListPlain(LNPC[key].steps) + blocks(LNPC[key].after);
+        }
         return blocks(LNPC[key].body);
     }
   }
@@ -484,6 +503,9 @@
         if (parts[1] === 'my-device') { return renderListeningDevice(); }
         if (parts[1] === 'receiver')  { return renderListeningReceiver(); }
         return renderListening();
+      case 'extras':     return renderExtras();
+      case 'add-mic':    return renderStepsPage('addMic', '#/extras');
+      case 'share':      return renderStepsPage('share', '#/extras');
       case 'mixer':      return renderMixer();
       case 'wireless':   return renderWireless();
       case 'help':       return renderHelp(parts[1]);
