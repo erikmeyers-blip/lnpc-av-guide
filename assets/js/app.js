@@ -531,6 +531,10 @@
 
   var lastRender = null;   /* null, not '', so the first paint always happens */
 
+  /* The walkthroughs are linked from several pages. Back should return to
+     whichever one the reader came from, not always to the same parent. */
+  var cameFrom = {};
+
   function render() {
     var loc  = currentPath();
     var page = route(loc.path);
@@ -538,6 +542,9 @@
     /* Re-rendering the same page would throw away open accordions
        and scroll position, so only rebuild when the route changes. */
     var signature = loc.path;
+    if (lastRender !== null && signature !== lastRender && lastRender.indexOf('help') !== 0) {
+      cameFrom[signature] = '#/' + lastRender;
+    }
     if (signature !== lastRender || page.scrollTo) {
       main.innerHTML = page.html;
       lastRender = signature;
@@ -554,7 +561,7 @@
       helpEl.hidden = true;
     } else {
       backEl.hidden = false;
-      backEl.href = page.back || '#/';
+      backEl.href = (page.back && cameFrom[signature]) || page.back || '#/';
       helpEl.hidden = (loc.path.indexOf('help') === 0);
     }
 

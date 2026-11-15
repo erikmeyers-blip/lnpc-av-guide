@@ -230,6 +230,9 @@ LNPC.musician = {
   body: [
     { t: 'note', label: 'What you don’t have to touch', x: 'The mixer, the touchscreen, the rack, the scenes: none of it. If you can hear yourself and someone gave you a thumbs up, you’re done.' },
 
+    { t: 'p', x: 'The one exception is a guest with their own instrument or an extra microphone. That takes about ten minutes at the mixer before the service, and there is a walkthrough for whoever is doing it.' },
+    { t: 'jump', to: '#/add-mic', icon: '🎻', x: 'Adding a mic for a guest musician' },
+
     { t: 'h', x: 'Where to plug in' },
     { t: 'p', x: 'There are labeled wall jacks near the pulpit and lectern, labeled **Side Pulpit 1** and **Side Pulpit 2**, that take an ordinary XLR mic cable. More inputs (Plate 1 through 10) live in the rack for bigger setups.' },
     { t: 'p', x: 'They’re already wired through to the mixer. For **Side Pulpit 1 and 2**, plugging in really is the whole job: those channels are live with their levels already set.' },
