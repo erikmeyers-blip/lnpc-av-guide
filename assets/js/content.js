@@ -75,7 +75,7 @@ LNPC.home = {
       to: '#/listening',
       icon: '👂',
       title: 'I want to hear better',
-      sub: 'Use your own hearing aids, or borrow a receiver from the entrance.'
+      sub: 'Use your own hearing aids, or borrow a receiver by the rear south entrance.'
     },
     {
       to: '#/help',
@@ -324,11 +324,10 @@ LNPC.listeningReceiver = {
       id: 'pickup',
       title: 'Pick one up',
       body: [
-        { t: 'p', x: 'The receivers live in a charging dock, most likely **near the sanctuary entrance**. If you can’t see it, ask a **Hospitality team host**. They’ll know where it is and they’re happy to help you get set up.' },
+        { t: 'p', x: 'The receivers live in a charging dock near the **rear south entrance** to the sanctuary. If you can’t see it, ask a **Hospitality team host**. They’ll know where it is and they’re happy to help you get set up.' },
         { t: 'img', src: 'assets/img/auri-receivers.jpg', w: 1000, h: 751,
           alt: 'Four Auri receivers sitting in their black charging dock, two of them with lit screens reading Auri lnpc',
-          caption: 'This is what you’re looking for. Lift one straight out of its slot. It switches itself on as you do, and the screen shows **`Auri lnpc`**, which is the church’s broadcast.' },
-        { t: 'open', x: 'The dock’s permanent home isn’t settled yet, because it depends on where there is a power outlet near the entrance. Until it’s fixed in one place, asking a Hospitality team host is the reliable way to find it.' }
+          caption: 'This is what you’re looking for. Lift one straight out of its slot. It switches itself on as you do, and the screen shows **`Auri lnpc`**, which is the church’s broadcast.' }
       ]
     },
     {
@@ -726,7 +725,6 @@ LNPC.openItems = {
   lede: 'A short list of things still to pin down. Nothing here has been guessed at. If you know the answer, it’s worth telling whoever maintains this guide.',
   body: [
     { t: 'ul', x: [
-      'Where the hearing assistance charging dock permanently lives. It wants to be near the sanctuary entrance, but that depends on finding a power outlet there.',
       'Saved camera positions for the Rally Bar Mini: discussed, not yet set up.',
       'The exact values of the four Zoom settings under Audio and then Advanced. The two Windows ones are confirmed Off; the other two are from memory.',
       'Photos from Luke of each mixer screen in the guest mic walkthrough, and exactly which control sends a channel to the house, the stream and hearing assistance.',
@@ -745,7 +743,8 @@ LNPC.openItems = {
       '**Mixer scenes**: `ALS-Starting File` (scene B02) is the everyday default. A second scene now exists for the Presbytery meeting.',
       '**Instrument mics**: the two KSM137s do need 48V phantom power, confirmed with Luke against the Shure paperwork.',
       '**Auracast broadcast name**: confirmed as `Auri lnpc` off a live receiver screen.',
-      '**TV input**: the streaming computer is on `HDMI-1`.'
+      '**TV input**: the streaming computer is on `HDMI-1`.',
+      '**Hearing assistance receivers**: the charging dock lives near the rear south entrance to the sanctuary.'
     ]},
     { t: 'note', label: 'Deliberately not published', x: 'The PC login PIN and the AV Net wi-fi password are not on this site, on the station cards, or in the printed guide. That was a decision, not an oversight. Ask this week’s Hospitality team tech volunteer, or read the sticker on the router.' }
   ]
