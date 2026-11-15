@@ -918,6 +918,10 @@ LNPC.share = {
   title: 'Showing a video or playing audio',
   lede: 'For when the room and the people online should see and hear the same clip. The good news first: Zoom never plays your own share back at you.',
   intro: [
+    { t: 'h', x: 'Share from the cart computer' },
+    { t: 'p', x: 'The steps below assume the clip is on the cart computer, the one already running the meeting. That is the easy way: one machine, one person, and nothing else in the room joined to Zoom.' },
+    { t: 'p', x: 'So get the clip onto it ahead of time. A link you can open in the browser is simplest. A file can come on a USB stick or by email. Open it once before the service to be sure it plays there.' },
+
     { t: 'h', x: 'Where the sound goes' },
     { t: 'ul', x: [
       '**To the people online:** when you tick **Share sound**, Zoom sends the computer’s sound straight down the wire. It is a clean copy and no microphone is involved.',
@@ -976,6 +980,18 @@ LNPC.share = {
   after: [
     { t: 'h', x: 'If you would rather keep it simple' },
     { t: 'p', x: 'You can skip all of this: leave **Share sound** unticked, don’t mute, and just play the clip in the room. People online then hear it through the room microphones. It works, but it sounds distant, and for anything with music in it the proper way above is worth the three extra clicks.' },
+
+    { t: 'h', x: 'If someone shares from their own laptop instead' },
+    { t: 'p', x: 'It can be done, and sometimes it has to be, for slides that only open properly on the presenter’s own machine. But a second computer in the room joined to Zoom brings extra problems, so set it up before the service, not during it.' },
+    { t: 'ol', x: [
+      '**The host lets them share.** At the cart, either make them a co-host or allow participants to share.',
+      '**They join without audio.** When Zoom offers to join audio, they close that box, or choose **Leave computer audio** afterwards. A second microphone and speaker live in the same room is what causes the howl.',
+      '**They share with Share sound ticked,** the same as above. That still works without joining audio.',
+      '**They turn their own laptop volume right down,** so the room hears the clip from one speaker only. Down, not muted.',
+      '**The person at the cart still mutes the cart microphone** in Zoom for the length of the clip, and unmutes after.'
+    ]},
+    { t: 'note', label: 'How the room hears it', x: 'The laptop’s share travels through Zoom to the cart computer, which shows it on the TV and plays it through its speaker like anyone else’s share. So the room still gets its picture and sound from the cart, a moment behind the laptop.' },
+    { t: 'note', label: 'It takes two people', x: 'One shares, one mutes and unmutes at the cart. Agree beforehand who is doing which.' },
 
     { t: 'h', x: 'Not yet tried in the sanctuary' },
     { t: 'open', x: 'This procedure is worked out from how Zoom behaves and how the system is wired. Nobody has run it in the room yet. It needs one five-minute test before it is relied on.' },
